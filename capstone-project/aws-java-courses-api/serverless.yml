@@ -1,7 +1,7 @@
 service: courses-api
 
 custom:
-  productsTableName: 'java-courses-${self:provider.stage}'
+  coursesTableName: 'java-courses-${self:provider.stage}'
 
 provider:
   name: aws
@@ -20,23 +20,23 @@ provider:
       Resource:
         - { "Fn::GetAtt": ["CoursesDynamoDBTable", "Arn" ] }
   environment:
-    PRODUCTS_TABLE_NAME: ${self:custom.coursesTableName}
+    COURSES_TABLE_NAME: ${self:custom.coursesTableName}
 
 package:
   artifact: 'target/${self:service}-${self:provider.stage}.jar'
 
 functions:
   listCourses:
-    handler: com.udacity.rest.ListCourseHandler
+    handler: com.udacity.rest.ListCoursesHandler
     events:
       - http:
           path: /courses
           method: get
   getCourse:
-    handler: com.udacity.rest.GeCourseHandler
+    handler: com.udacity.rest.GetCourseHandler
     events:
       - http:
-          path: /courses/{id}
+          path: /course/{id}
           method: get
   createCourse:
     handler: com.udacity.rest.CreateCourseHandler
@@ -44,16 +44,16 @@ functions:
       - http:
           path: /coures
           method: post
-  deleteProduct:
+  deleteCourse:
     handler: com.udacity.rest.DeleteCourseHandler
     events:
       - http:
-          path: /courses/{id}
+          path: /course/{id}
           method: delete
 
 resources:
   Resources:
-    ProductsDynamoDBTable:
+    CoursesDynamoDBTable:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: ${self:custom.coursesTableName}
