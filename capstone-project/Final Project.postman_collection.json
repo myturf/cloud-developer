@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "44a05631-b605-4e39-b615-30be93285ea5",
+		"name": "Capstone Project Rest API",
+		"description": "AWS API and Lambda Implementation in Java using Serverless framework",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create ToDo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Get it done\",\"dueDate\": \"2020-06-11\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://b8oru25hj7.execute-api.us-east-2.amazonaws.com/develop/todo",
+					"protocol": "https",
+					"host": [
+						"b8oru25hj7",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"develop",
+						"todo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get To Dos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://b8oru25hj7.execute-api.us-east-2.amazonaws.com/develop/todo",
+					"protocol": "https",
+					"host": [
+						"b8oru25hj7",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"develop",
+						"todo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete To Do",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://b8oru25hj7.execute-api.us-east-2.amazonaws.com/develop/todo/e066fdd9-793f-4efa-92b4-d9cb80b66abf",
+					"protocol": "https",
+					"host": [
+						"b8oru25hj7",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"develop",
+						"todo",
+						"e066fdd9-793f-4efa-92b4-d9cb80b66abf"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
